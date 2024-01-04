@@ -7,10 +7,9 @@ import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
 import {RidesComponent} from './seznami/rides.component';
-import {ArtikelDodajComponent} from './seznami/artikel-dodaj.component';
-import {SeznamPodrobnostiComponent} from './seznami/seznam-podrobnosti.component';
+import {RideAddComponent} from './seznami/ride-add.component';
+import {RideDetailsComponent} from './seznami/ride-details.component';
 import {RideService} from './seznami/services/rides.service';
-import { Ride } from './seznami/models/ride';
 
 
 @NgModule({
@@ -23,8 +22,8 @@ import { Ride } from './seznami/models/ride';
     declarations: [
         AppComponent,
         RidesComponent,
-        SeznamPodrobnostiComponent,
-        ArtikelDodajComponent
+        RideDetailsComponent,
+        RideAddComponent
     ],
     providers: [RideService],
     bootstrap: [AppComponent]

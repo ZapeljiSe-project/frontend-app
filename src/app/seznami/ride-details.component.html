@@ -1,0 +1,31 @@
+<div *ngIf="ride">
+
+    <h2>Podrobnosti prevoza</h2>
+    <hr>
+
+    <p><b>Od:</b> {{ride.fromTown}}</p>
+    <p><b>Do:</b> {{ride.toTown}}</p>
+    <hr>
+
+    <p><b>Datum:</b>  {{ formatDate(ride.date) }}</p>
+    <p><b>Ura:</b> {{ride.timeHours < 10 ? '0' + ride.timeHours : ride.timeHours}}:{{ride.timeMinutes < 10 ? '0' + ride.timeMinutes : ride.timeMinutes}}</p>
+    <hr>
+
+    <p><b>Cena:</b> {{ride.price}} €</p>
+    <p><b>Prevozno sredstvo:</b> {{ride.car}}</p>
+    <p><b>Zavarovanje:</b> {{ride.insurance ? 'DA' : 'NE'}}</p>
+    <p><b>Prostih mest:</b> {{ride.space}}</p>
+    <p><b>Postanki na poti:</b> {{ride.pick ? 'DA' : 'NE'}}</p>
+    <hr>
+
+    <p><b>Opombe:</b> {{ride.notes}}</p>
+    <hr>
+
+    <p><b>Prevoz nudi:</b> {{ride.driver}}</p>
+    <p><b>Kontakt:</b> {{ride.phone}}</p>
+
+    <br><br>
+    <button (click)="back()">Nazaj</button>
+    <button (click)="updateRide(ride.id)">Spremeni</button>
+    <button (click)="deleteRide(ride); $event.stopPropagation()">Izbriši</button>
+</div>

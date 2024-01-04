@@ -1,0 +1,63 @@
+<h2>Ponudi nov prevoz</h2>
+<div *ngIf="ride">
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr>
+                <td><label for="driver">Ime in priimek </label></td>
+                <td><input [(ngModel)]="ride.driver" id="driver" name="driver" required /></td>
+            </tr>
+            <tr>
+                <td><label for="fromTown">Od </label></td>
+                <td><input [(ngModel)]="ride.fromTown" id="fromTown" name="fromTown" required /></td>
+            </tr>
+            <tr>
+                <td><label for="toTown">Do </label></td>
+                <td><input [(ngModel)]="ride.toTown" id="toTown" name="toTown" required /></td>
+            </tr>
+            <tr>
+                <td><label for="date">Datum </label></td>
+                <td><input type="date" [ngModel] ="ride.date | date:'yyyy-MM-dd'" (ngModelChange)="ride.date = $event" id="date" name="date" required /></td>
+            </tr>
+            <tr>
+                <td><label for="timeHours">Čas (ure) </label></td>
+                <td><input [(ngModel)]="ride.timeHours" id="timeHours" name="timeHours" style="width: 30%;" required /></td>
+            </tr>
+            <tr>
+                <td><label for="timeMinutes">Čas (minute) </label></td>
+                <td><input [(ngModel)]="ride.timeMinutes" id="timeMinutes" name="timeMinutes" style="width: 30%;" required /></td>
+            </tr>
+            <tr>
+                <td><label for="price">Cena (€) </label></td>
+                <td><input [(ngModel)]="ride.price" id="price" name="price" style="width: 30%;" required /></td>
+            </tr>
+            <tr>
+                <td><label for="car">Vozilo </label></td>
+                <td><input [(ngModel)]="ride.car" id="car" name="car" required /></td>
+            </tr>
+            <tr>
+                <td><label for="insurance">Zavarovanje </label></td>
+                <td><input type="checkbox" [(ngModel)]="ride.insurance" id="insurance" name="insurance"></td>
+            </tr>
+            <tr>
+                <td><label for="space">Prosta mesta </label></td>
+                <td><input [(ngModel)]="ride.space" id="space" name="space" style="width: 30%;" required /></td>
+            </tr>
+            <tr>
+                <td><label for="pick">Pobiram po poti </label></td>
+                <td><input type="checkbox" [(ngModel)]="ride.pick" id="pick" name="pick"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Telefon </label></td>
+                <td><input [(ngModel)]="ride.phone" id="phone" name="phone" required /></td>
+            </tr>
+            <tr>
+                <td><label for="notes">Opombe </label></td>
+                <td><input [(ngModel)]="ride.notes" id="notes" name="notes" /></td>
+            </tr>
+        </table>
+
+        <br/><br/>
+        <button type="button" (click)="back()">Nazaj</button>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>

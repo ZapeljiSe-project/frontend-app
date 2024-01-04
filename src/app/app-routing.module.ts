@@ -2,14 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import { RidesComponent } from './seznami/rides.component';
-import { SeznamPodrobnostiComponent } from './seznami/seznam-podrobnosti.component';
-import { ArtikelDodajComponent } from './seznami/artikel-dodaj.component';
+import { RideDetailsComponent } from './seznami/ride-details.component';
+import { RideAddComponent } from './seznami/ride-add.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/prevozi', pathMatch: 'full'},
     {path: 'prevozi', component: RidesComponent},
-    {path: 'seznami/:id', component: SeznamPodrobnostiComponent},
-    {path: 'seznami/:id/dodaj', component: ArtikelDodajComponent}
+    {path: 'prevozi/dodaj', component: RideAddComponent},
+    {path: 'prevozi/:id', component: RideDetailsComponent}
 ];
 
 @NgModule({

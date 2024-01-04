@@ -29,13 +29,11 @@ export class RidesComponent implements OnInit {
 
     toDetails(ride: Ride): void {
         this.ride = ride;
-        this.router.navigate(['/rides', this.ride.id]);
+        this.router.navigate(['/prevozi', this.ride.id]);
     }
 
-    delete(ride: Ride): void {
-        this.rideService
-            .deleteRide(ride.id)
-            .subscribe(rideId => this.rides = this.rides.filter(s => s.id !== rideId));
+    addRide(): void {
+        this.router.navigate(['prevozi/dodaj']);
     }
 
     formatDate(dateString: string): string {
@@ -50,5 +48,5 @@ export class RidesComponent implements OnInit {
       
         // Format: DD.MM.YYYY
         return `${day}.${month}.${year}`;
-      }
+    }
 }
