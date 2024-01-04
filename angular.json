@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "odjemalec-prpo": {
+    "client-zapeljise-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/odjemalec-prpo",
+            "outputPath": "dist/client-zapeljise-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "odjemalec-prpo:build"
+            "browserTarget": "client-zapeljise-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "odjemalec-prpo:build:production"
+              "browserTarget": "client-zapeljise-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "odjemalec-prpo:build"
+            "browserTarget": "client-zapeljise-app:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         }
       }
     },
-    "odjemalec-prpo-e2e": {
+    "client-zapeljise-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "odjemalec-prpo:serve"
+            "devServerTarget": "client-zapeljise-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "odjemalec-prpo:serve:production"
+              "devServerTarget": "client-zapeljise-app:serve:production"
             }
           }
         },
@@ -131,7 +131,7 @@
       }
     }
   },
-  "defaultProject": "odjemalec-prpo",
+  "defaultProject": "client-zapeljise-app",
   "cli": {
     "analytics": false
   }
