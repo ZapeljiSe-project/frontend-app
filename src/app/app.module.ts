@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {RidesComponent} from './seznami/rides.component';
 import {RideAddComponent} from './seznami/ride-add.component';
+import {RideUpdateComponent} from './seznami/ride-update.component';
 import {RideDetailsComponent} from './seznami/ride-details.component';
 import {RideService} from './seznami/services/rides.service';
 
@@ -22,6 +23,7 @@ import {RideService} from './seznami/services/rides.service';
     declarations: [
         AppComponent,
         RidesComponent,
+        RideUpdateComponent,
         RideDetailsComponent,
         RideAddComponent
     ],

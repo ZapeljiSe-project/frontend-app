@@ -1,7 +1,7 @@
 <div *ngIf="ride">
 
     <h2>Podrobnosti prevoza</h2>
-    <hr>
+    <br>
 
     <p><b>Od:</b> {{ride.fromTown}}</p>
     <p><b>Do:</b> {{ride.toTown}}</p>
@@ -26,6 +26,6 @@
 
     <br><br>
     <button (click)="back()">Nazaj</button>
-    <button (click)="updateRide(ride.id)">Spremeni</button>
+    <button (click)="updateRide(ride)">Spremeni</button>
     <button (click)="deleteRide(ride); $event.stopPropagation()">Izbriši</button>
 </div>

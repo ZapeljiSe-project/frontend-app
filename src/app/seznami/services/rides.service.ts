@@ -30,14 +30,20 @@ export class RideService {
                         .pipe(catchError(this.handleError));
     }
 
+    createRide(ride: Ride): Observable<Ride> {
+        return this.http.post<Ride>(this.url, JSON.stringify(ride), {headers: this.headers})
+                        .pipe(catchError(this.handleError));
+    }
+
     deleteRide(id: number): Observable<number> {
         const url = `${this.url}/${id}`;
         return this.http.delete<number>(url, {headers: this.headers})
                         .pipe(catchError(this.handleError));
     }
 
-    createRide(ride: Ride): Observable<Ride> {
-        return this.http.post<Ride>(this.url, JSON.stringify(ride), {headers: this.headers})
+    updateRide(ride: Ride): Observable<Ride> {
+        const url = `${this.url}/${ride.id}`;
+        return this.http.put<Ride>(url, JSON.stringify(ride), {headers: this.headers})
                         .pipe(catchError(this.handleError));
     }
 

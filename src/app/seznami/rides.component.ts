@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { Ride } from './models/ride';
 import { RideService } from './services/rides.service';
@@ -10,21 +11,40 @@ import { RideService } from './services/rides.service';
     templateUrl: 'rides.component.html'
 })
 export class RidesComponent implements OnInit {
+    private datePipe: DatePipe;
     rides: Ride[];
     ride: Ride;
 
     constructor(private rideService: RideService,
                 private router: Router) {
+        this.datePipe = new DatePipe('en-US');
     }
 
     ngOnInit(): void {
         this.getRides();
     }
 
-    getRides(): void {
+    /*getRides(): void {
         this.rideService
             .getRides()
             .subscribe(rides => this.rides = rides);
+    }*/
+
+    getRides(): void {
+        this.rideService
+            .getRides()
+            .subscribe(rides => {
+                this.rides = rides.map(ride => {
+                    const dateString: string = ride.date.toString();
+                    const dateWithoutBrackets = dateString.replace(/\[.*\]/, '');
+                    const dateObject: Date = new Date(dateWithoutBrackets);
+                    const formattedDate: string = this.datePipe.transform(dateObject, 'yyyy-MM-dd');
+                    const dateObjectFinal = new Date(formattedDate);
+    
+                    // Update the ride object with the formatted date
+                    return { ...ride, date: dateObjectFinal };
+                });
+            });
     }
 
     toDetails(ride: Ride): void {
@@ -37,16 +57,8 @@ export class RidesComponent implements OnInit {
     }
 
     formatDate(dateString: string): string {
-        if (!dateString) {
-          return '';
-        }
-      
-        // Extract components of the date string
-        const year = dateString.substring(0, 4);
-        const month = dateString.substring(5, 7);
-        const day = dateString.substring(8, 10);
-      
-        // Format: DD.MM.YYYY
-        return `${day}.${month}.${year}`;
+        const originalDate: Date = new Date(dateString);
+        const formattedDate: string = this.datePipe.transform(originalDate, 'dd.MM.yyyy');
+        return formattedDate;
     }
 }

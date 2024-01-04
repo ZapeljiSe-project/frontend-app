@@ -29,13 +29,9 @@ export class RideAddComponent implements OnInit {
     }
 
     submitForm(): void {
-        console.log(this.ride.date);
-
         const formattedDate: string = this.datePipe.transform(this.ride.date, 'yyyy-MM-ddTHH:mm:ssZ');
         const dateObject = new Date(formattedDate);
         this.ride.date = dateObject;
-
-        console.log(this.ride.date);
 
         this.rideService.createRide(this.ride)
             .subscribe(() => this.router.navigate(['/prevozi']));
