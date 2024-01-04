@@ -4,8 +4,8 @@ import {Location} from '@angular/common';
 
 import { switchMap } from 'rxjs/operators';
 
-import {NakupovalniSeznam} from './models/seznam';
-import {SeznamiService} from './services/seznami.service';
+import {Ride} from './models/ride';
+import {RideService} from './services/rides.service';
 
 @Component({
     moduleId: module.id,
@@ -13,9 +13,9 @@ import {SeznamiService} from './services/seznami.service';
     templateUrl: 'seznam-podrobnosti.component.html'
 })
 export class SeznamPodrobnostiComponent implements OnInit {
-    seznam: NakupovalniSeznam;
+    seznam: Ride;
 
-    constructor(private seznamService: SeznamiService,
+    constructor(private seznamService: RideService,
                 private route: ActivatedRoute,
                 private location: Location,
                 private router: Router) {
@@ -23,7 +23,7 @@ export class SeznamPodrobnostiComponent implements OnInit {
 
     ngOnInit(): void {
        this.route.params.pipe(
-            switchMap((params: Params) => this.seznamService.getSeznam(+params['id'])))
+            switchMap((params: Params) => this.seznamService.getRide(+params['id'])))
             .subscribe(seznam => this.seznam = seznam);
     }
 

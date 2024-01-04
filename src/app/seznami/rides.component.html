@@ -1,0 +1,8 @@
+<h2>Objavljeni prevozi</h2>
+
+<ul class="seznami">
+    <li *ngFor="let ride of rides" (click)="toDetails(ride)">
+        <span>{{ride.fromTown}} - {{ride.toTown}}</span>
+        <span><br>{{ formatDate(ride.date) }}</span>
+    </li>
+</ul>

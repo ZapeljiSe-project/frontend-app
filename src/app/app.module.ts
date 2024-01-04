@@ -6,10 +6,11 @@ import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
-import {SeznamiComponent} from './seznami/seznami.component';
+import {RidesComponent} from './seznami/rides.component';
 import {ArtikelDodajComponent} from './seznami/artikel-dodaj.component';
 import {SeznamPodrobnostiComponent} from './seznami/seznam-podrobnosti.component';
-import {SeznamiService} from './seznami/services/seznami.service';
+import {RideService} from './seznami/services/rides.service';
+import { Ride } from './seznami/models/ride';
 
 
 @NgModule({
@@ -21,11 +22,11 @@ import {SeznamiService} from './seznami/services/seznami.service';
     ],
     declarations: [
         AppComponent,
-        SeznamiComponent,
+        RidesComponent,
         SeznamPodrobnostiComponent,
         ArtikelDodajComponent
     ],
-    providers: [SeznamiService],
+    providers: [RideService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
