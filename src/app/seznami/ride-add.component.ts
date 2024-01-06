@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { RideService } from './services/rides.service';
+import { TownService } from './services/towns.service';
 import { Ride } from './models/ride';
 
 @Component({
@@ -12,16 +13,21 @@ import { Ride } from './models/ride';
 })
 export class RideAddComponent implements OnInit {
     ride: Ride = new Ride;
+    towns: string[] = [];
     // private sub: any;
     private datePipe: DatePipe;
 
     constructor(private rideService: RideService,
+                private townService: TownService,
                 private router: Router) {
         this.datePipe = new DatePipe('en-US');
     }
 
     ngOnInit() {
-        // this.sub.subscribe();
+        // Fetch towns when the component initializes
+        this.townService.getTowns().subscribe(towns => {
+            this.towns = towns.map(town => town.name);
+        });
     }
 
     ngOnDestroy() {

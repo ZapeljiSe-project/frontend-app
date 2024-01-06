@@ -11,6 +11,7 @@ import {RideAddComponent} from './seznami/ride-add.component';
 import {RideUpdateComponent} from './seznami/ride-update.component';
 import {RideDetailsComponent} from './seznami/ride-details.component';
 import {RideService} from './seznami/services/rides.service';
+import {TownService} from './seznami/services/towns.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {RideService} from './seznami/services/rides.service';
         RideDetailsComponent,
         RideAddComponent
     ],
-    providers: [RideService],
+    providers: [RideService, TownService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -12,6 +12,7 @@ export class RideService {
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
     private url = 'http://localhost:8080/v1/rides';
+    // private url = 'http://20.253.101.2/ms-ride/v1/rides';
 
     constructor(private http: HttpClient) {
     }

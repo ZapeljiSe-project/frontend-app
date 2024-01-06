@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Location} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { switchMap } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 
 import { RideService } from './services/rides.service';
+import { TownService } from './services/towns.service';
 import { Ride } from './models/ride';
 
 @Component({
@@ -16,8 +17,10 @@ import { Ride } from './models/ride';
 export class RideUpdateComponent implements OnInit {
     private datePipe: DatePipe;
     ride: Ride;
+    towns: string[] = [];
 
     constructor(private rideService: RideService,
+                private townService: TownService,
                 private route: ActivatedRoute,
                 private location: Location,
                 private router: Router) {
@@ -28,6 +31,11 @@ export class RideUpdateComponent implements OnInit {
         // this.route.params.pipe(
         //     switchMap((params: Params) => this.rideService.getRide(+params['id'])))
         //     .subscribe(ride => this.ride = ride);
+
+        // Fetch towns when the component initializes
+        this.townService.getTowns().subscribe(towns => {
+            this.towns = towns.map(town => town.name);
+        });
 
         this.route.params.pipe(
             switchMap((params: Params) => this.rideService.getRide(+params['id'])))

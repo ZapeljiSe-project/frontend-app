@@ -8,11 +8,21 @@
             </tr>
             <tr>
                 <td><label for="fromTown">Od </label></td>
-                <td><input [(ngModel)]="ride.fromTown" id="fromTown" name="fromTown" required /></td>
-            </tr>
+                <td>
+                  <input [(ngModel)]="ride.fromTown" id="fromTown" name="fromTown" required list="townSuggestions" />
+                  <datalist id="townSuggestions">
+                    <option *ngFor="let town of towns" [value]="town"></option>
+                  </datalist>
+                </td>
+              </tr>
             <tr>
                 <td><label for="toTown">Do </label></td>
-                <td><input [(ngModel)]="ride.toTown" id="toTown" name="toTown" required /></td>
+                <td>
+                  <input [(ngModel)]="ride.toTown" id="toTown" name="toTown" required list="townSuggestions" />
+                  <datalist id="townSuggestions">
+                  <option *ngFor="let town of towns" [value]="town"></option>
+                    </datalist>
+                </td>
             </tr>
             <tr>
                 <td><label for="date">Datum </label></td>
