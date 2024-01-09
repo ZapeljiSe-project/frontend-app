@@ -59,7 +59,7 @@ export class RidesComponent implements OnInit {
     }
 
     changeMyData(): void {
-        // TO DO
+        this.router.navigate(['/moji-podatki']);
     }
 
     /*getRides(): void {

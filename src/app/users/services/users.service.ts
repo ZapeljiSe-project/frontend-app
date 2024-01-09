@@ -27,6 +27,18 @@ export class UserService {
                         .pipe(catchError(this.handleError));
     }
 
+    getUser(id: number): Observable<User> {
+        const url = `${this.url}/${id}`;
+        return this.http.get<User>(url)
+                        .pipe(catchError(this.handleError));
+    }
+
+    updateUser(user: User): Observable<User> {
+        const url = `${this.url}/${user.id}`;
+        return this.http.put<User>(url, JSON.stringify(user), {headers: this.headers})
+                        .pipe(catchError(this.handleError));
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('Prišlo je do napake.', error);
         return Promise.reject(error.message || error);

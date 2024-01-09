@@ -1,0 +1,30 @@
+<h2>Spremeni moje podatke</h2>
+<div *ngIf="user">
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr>
+                <td><label for="username">Uporabniško ime </label></td>
+                <td><input [(ngModel)]="user.username" id="username" name="username" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="password">Geslo </label></td>
+                <td>
+                    <input [(ngModel)]="user.password" id="password" name="password" [type]="showPassword ? 'text' : 'password'" readonly />
+                    <button type="button" (click)="togglePasswordVisibility()">Pokaži</button>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="name">Ime in priimek </label></td>
+                <td><input [(ngModel)]="user.name" id="name" name="name" required></td>
+            </tr>
+            <tr>
+                <td><label for="name">Telefon</label></td>
+                <td><input [(ngModel)]="user.phone" id="phone" name="phone"></td>
+            </tr>
+        </table>
+
+        <br/><br/>
+        <button type="button" (click)="back()">Nazaj</button>
+        <button type="submit">Posodobi podatke</button>
+    </form>
+</div>
