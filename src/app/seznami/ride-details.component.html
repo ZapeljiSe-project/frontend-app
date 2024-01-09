@@ -26,6 +26,6 @@
 
     <br><br>
     <button (click)="back()">Nazaj</button>
-    <button (click)="updateRide(ride)">Spremeni</button>
-    <button (click)="deleteRide(ride); $event.stopPropagation()">Izbriši</button>
+    <button *ngIf="get() === ride.userId" (click)="updateRide(ride)">Spremeni</button>
+    <button *ngIf="get() === ride.userId" (click)="deleteRide(ride); $event.stopPropagation()">Izbriši</button>
 </div>

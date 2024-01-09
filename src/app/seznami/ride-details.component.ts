@@ -43,6 +43,10 @@ export class RideDetailsComponent implements OnInit {
             });
     }
 
+    get(){
+        return Number(sessionStorage.getItem('userId'));
+    }
+
     back(): void {
         this.router.navigate(['prevozi']);
     }

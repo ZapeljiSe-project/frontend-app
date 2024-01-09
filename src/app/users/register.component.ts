@@ -42,22 +42,6 @@ export class RegisterComponent implements OnInit {
             );
     }
 
-    /* submitForm(): void {
-        this.userService.registerUser(this.user)
-        .subscribe((response: any) => {
-            // Assuming your backend response contains an 'id' field
-            const userId = response.id;
-            const username: string = response.username;
-            const name: string = response.name;
-
-            // Do something with the userId, for example, store it in sessionStorage
-            this.dataSaveLogin(userId, username, name);
-
-            // Navigate to the desired route
-            this.router.navigate(['/prevozi']);
-        });
-    } */
-
     togglePasswordVisibility() {
         this.showPassword = !this.showPassword;
     }

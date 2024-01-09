@@ -34,10 +34,15 @@ export class RideAddComponent implements OnInit {
         // this.sub.unsubscribe();
     }
 
+    get(){
+        return sessionStorage.getItem('userId');
+    }
+
     submitForm(): void {
         const formattedDate: string = this.datePipe.transform(this.ride.date, 'yyyy-MM-ddTHH:mm:ssZ');
         const dateObject = new Date(formattedDate);
         this.ride.date = dateObject;
+        this.ride.userId = Number(this.get());
 
         this.rideService.createRide(this.ride)
             .subscribe(() => this.router.navigate(['/prevozi']));

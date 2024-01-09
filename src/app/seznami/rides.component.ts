@@ -57,6 +57,14 @@ export class RidesComponent implements OnInit {
         this.router.navigate(['/registracija']);
     }
 
+    toLogin(): void {
+        this.router.navigate(['/prijava']);
+    }
+
+    changeMyData(): void {
+        // TO DO
+    }
+
     /*getRides(): void {
         this.rideService
             .getRides()
