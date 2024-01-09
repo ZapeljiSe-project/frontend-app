@@ -14,4 +14,5 @@ export class Ride {
     timeHours: number;
     timeMinutes: number;
     toTown: string;
+    userId: number = 0;
 }

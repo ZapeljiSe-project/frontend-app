@@ -9,7 +9,7 @@ export class TownService {
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
     private url = 'http://localhost:8080/v1/town';
-    // private url = 'http://20.253.101.2/ms-ride/v1/town';
+    // private url = 'http://52.188.141.107/ms-ride/v1/town';
 
     constructor(private http: HttpClient) {
     }
