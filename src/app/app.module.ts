@@ -14,6 +14,7 @@ import {RideService} from './seznami/services/rides.service';
 import {TownService} from './seznami/services/towns.service';
 
 import {RegisterComponent} from './users/register.component';
+import {LoginComponent} from './users/login.component';
 import {UserService} from './users/services/users.service';
 
 
@@ -31,7 +32,8 @@ import {UserService} from './users/services/users.service';
         RideDetailsComponent,
         RideAddComponent,
         
-        RegisterComponent
+        RegisterComponent,
+        LoginComponent,
     ],
     providers: [RideService, TownService, UserService],
     bootstrap: [AppComponent]

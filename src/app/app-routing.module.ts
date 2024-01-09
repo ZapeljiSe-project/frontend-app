@@ -7,6 +7,7 @@ import { RideAddComponent } from './seznami/ride-add.component';
 import { RideUpdateComponent } from './seznami/ride-update.component';
 
 import { RegisterComponent } from './users/register.component';
+import { LoginComponent } from './users/login.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/prevozi', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path: 'prevozi/:id', component: RideDetailsComponent},
     {path: 'prevozi/:id/spremeni', component: RideUpdateComponent},
 
-    {path: 'registracija', component: RegisterComponent}
+    {path: 'registracija', component: RegisterComponent},
+    {path: 'prijava', component: LoginComponent}
 ];
 
 @NgModule({

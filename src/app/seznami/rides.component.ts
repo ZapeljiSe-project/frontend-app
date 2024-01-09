@@ -31,14 +31,11 @@ export class RidesComponent implements OnInit {
         this.name = this.getName();
     }
 
-    dataSaveLogin(userId: number){
-        sessionStorage.setItem('userId', userId.toString());
-    }
-
     dataSaveLogout(){
         sessionStorage.removeItem('userId');
         sessionStorage.removeItem('username');
         sessionStorage.removeItem('name');
+        sessionStorage.removeItem('phone');
     }
 
     get(){

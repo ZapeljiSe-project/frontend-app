@@ -1,0 +1,24 @@
+<h2>Prijava</h2>
+<div *ngIf="user">
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr>
+                <td><label for="username">Uporabniško ime </label></td>
+                <td><input [(ngModel)]="user.username" id="username" name="username" required /></td>
+            </tr>
+            <tr>
+                <td><label for="password">Geslo </label></td>
+                <td>
+                    <input [(ngModel)]="user.password" id="password" name="password" [type]="showPassword ? 'text' : 'password'" required />
+                    <button type="button" (click)="togglePasswordVisibility()">Pokaži</button>
+                </td>
+            </tr>
+        </table>
+
+        <p style="color: red;">{{ message }}</p>
+
+        <br/><br/>
+        <button type="button" (click)="back()">Nazaj</button>
+        <button type="submit">Prijava</button>
+    </form>
+</div>
