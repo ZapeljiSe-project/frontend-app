@@ -28,6 +28,9 @@ export class RideAddComponent implements OnInit {
         this.townService.getTowns().subscribe(towns => {
             this.towns = towns.map(town => town.name);
         });
+
+        this.ride.driver = this.getName();
+        this.ride.phone = this.getPhone();
     }
 
     ngOnDestroy() {
@@ -36,6 +39,14 @@ export class RideAddComponent implements OnInit {
 
     get(){
         return sessionStorage.getItem('userId');
+    }
+
+    getName(){
+        return sessionStorage.getItem('name');
+    }
+
+    getPhone(){
+        return sessionStorage.getItem('phone');
     }
 
     submitForm(): void {
