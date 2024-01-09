@@ -1,6 +1,22 @@
-<button (click)="addRide()">Dodaj prevoz</button>
+<div class="navbar">
+  <div class="navbar-right">
+      <!-- Show "Login" button if userId is null -->
+      <button *ngIf="get() === null">Login</button> <!-- (click)="dataSaveLogin(someUserId)" -->
 
+      <!-- Show "Logout" button if userId is not null -->
+      <button *ngIf="get() !== null" (click)="dataSaveLogout()">Logout</button>
+      
+      <button *ngIf="get() === null" (click)="toRegister()">Register</button>
+  </div>
+</div>
+
+<!-- Show hello message if userId is not null -->
+<h4 *ngIf="get() !== null" style="margin-bottom: -10px;">Trenutno prijavljen uporabnik</h4>
+<p *ngIf="get() !== null">Ime in priimek: {{ name }} <br> Uporabniško ime: {{ username }}</p>
+  
 <h2>Objavljeni prevozi</h2>
+
+<button *ngIf="get() !== null" (click)="addRide()">Dodaj prevoz</button>
 
 <ul class="seznami">
     <li *ngFor="let ride of rides" (click)="toDetails(ride)">

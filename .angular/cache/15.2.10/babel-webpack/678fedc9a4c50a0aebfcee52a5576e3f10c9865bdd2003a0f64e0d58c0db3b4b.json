@@ -1,0 +1,1 @@
+{"ast":null,"code":"var User = /** @class */function () {\n  function User() {\n    this.id = 0;\n    this.phone = '';\n  }\n  return User;\n}();\nexport { User };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

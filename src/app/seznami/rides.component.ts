@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { Ride } from './models/ride';
@@ -15,6 +15,10 @@ export class RidesComponent implements OnInit {
     rides: Ride[];
     ride: Ride;
 
+    // Properties to currently logged user data.
+    username: string;
+    name: string;
+
     constructor(private rideService: RideService,
                 private router: Router) {
         this.datePipe = new DatePipe('en-US');
@@ -22,6 +26,35 @@ export class RidesComponent implements OnInit {
 
     ngOnInit(): void {
         this.getRides();
+
+        this.username = this.getUsername();
+        this.name = this.getName();
+    }
+
+    dataSaveLogin(userId: number){
+        sessionStorage.setItem('userId', userId.toString());
+    }
+
+    dataSaveLogout(){
+        sessionStorage.removeItem('userId');
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('name');
+    }
+
+    get(){
+        return sessionStorage.getItem('userId');
+    }
+
+    getUsername(){
+        return sessionStorage.getItem('username');
+    }
+
+    getName(){
+        return sessionStorage.getItem('name');
+    }
+
+    toRegister(): void {
+        this.router.navigate(['/registracija']);
     }
 
     /*getRides(): void {
