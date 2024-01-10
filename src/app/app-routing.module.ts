@@ -11,7 +11,7 @@ import { LoginComponent } from './users/login.component';
 import { UserUpdate } from './users/user-update.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: '/prevozi', pathMatch: 'full'},
+    {path: '', redirectTo: 'prevozi', pathMatch: 'full'},
     {path: 'prevozi', component: RidesComponent},
     {path: 'prevozi/dodaj', component: RideAddComponent},
     {path: 'prevozi/:id', component: RideDetailsComponent},
