@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend-container
+          image: gh6987/rso-frontend:ng-dckr-image         
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80 #The port that the container is running on in the cluser
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: ingress-nginx
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80 #The port that the service is running on in the cluser
+      protocol: TCP
+      targetPort: 80 #The port exposed by the service
+  selector:
+    app: frontend
