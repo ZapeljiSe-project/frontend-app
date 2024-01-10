@@ -9,8 +9,8 @@ import { User } from '../models/user';
 export class UserService {
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private url = 'http://localhost:8081/v1/users';
-    // private url = 'http://52.188.141.107/ms-user/v1/users';
+    // private url = 'http://localhost:8081/v1/users';
+    private url = 'http://52.255.222.173/ms-user/v1/users';
 
     constructor(private http: HttpClient) {
     }

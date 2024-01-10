@@ -11,8 +11,8 @@ import { catchError, map } from 'rxjs/operators';
 export class RideService {
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private url = 'http://localhost:8080/v1/rides';
-    // private url = 'http://52.188.141.107/ms-ride/v1/rides';
+    // private url = 'http://localhost:8080/v1/rides';
+    private url = 'http://52.255.222.173/ms-ride/v1/rides';
 
     constructor(private http: HttpClient) {
     }
